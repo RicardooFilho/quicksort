@@ -10,7 +10,7 @@ function loadPokemons () {
           <li>
           <img src="${pokemon.img}">
           <span class="header">${pokemon.nome}</span>
-          <span class="footer">${pokemon.ps}</span>
+          <span class="footer">PS: ${pokemon.ps}</span>
           </li>        
         `
     });
