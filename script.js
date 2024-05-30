@@ -1,8 +1,10 @@
 import pokemons from "./pokemons.js";
 
 function loadPokemons(pokemonList) {
+
     const ul = document.querySelector('ul');
-    ul.innerHTML = '';  // Limpa a lista antes de adicionar os pokémons
+
+    clearUl(ul)
 
     pokemonList.forEach(pokemon => {
         ul.innerHTML += `
@@ -15,9 +17,17 @@ function loadPokemons(pokemonList) {
     });
 }
 
-document.getElementById('embaralhar').addEventListener('click', () => {
-    const listaEmbaralhada = _.shuffle(pokemons);
-    loadPokemons(listaEmbaralhada);
-});
+function shufflePokemons() { 
 
-loadPokemons(pokemons);
+   const listaEmbaralhada = pokemons.sort(() => Math.random() - 0.5)
+
+    loadPokemons(listaEmbaralhada)
+}
+
+window.shufflePokemons = shufflePokemons
+
+function clearUl(ul) {
+       ul.innerHTML = '';
+}
+
+loadPokemons(pokemons)
