@@ -27,6 +27,7 @@ header {
 main {
     display: flex;
     align-items: center;
+    padding: 10px;
 }
 
 ul {
@@ -37,37 +38,22 @@ ul {
 }
 
 ul li {
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
     position: relative;
     list-style: none;
+    display: flex;
+    border-radius: 10px;
+    border: 2px solid rgb(92, 85, 85);
+    flex-direction: column  ;
 }
 
-ul li .header {
-    position: absolute;
-    top: 0;
-    background-color: aqua;
-    z-index: 1;
-    left: 0px;
-    width: 100%;
-    border-top-left-radius: 10px;
-    border-top-rigth-radius: 10px;
-    height: 9.5%;
+ul li span {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
 }
 
-ul li .footer {
-    position: absolute;
-    bottom: 0;
-    background-color: aqua;
-    z-index: 1;
-    left: 0px;
-    width: 100%;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-
-}
 
 img {
     width: 100%;
-}
-
-footer {
 }

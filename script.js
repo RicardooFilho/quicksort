@@ -8,9 +8,11 @@ function loadPokemons () {
 
         ul.innerHTML += `
           <li>
+          <span class="header">
+          <p>${pokemon.nome}</p>
+          <p>${pokemon.ps}</p>
+          </span>
           <img src="${pokemon.img}">
-          <span class="header">${pokemon.nome}</span>
-          <span class="footer">PS: ${pokemon.ps}</span>
           </li>        
         `
     });
