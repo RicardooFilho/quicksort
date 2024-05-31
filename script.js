@@ -1,11 +1,12 @@
 import pokemons from "./pokemons.js";
 
-function loadPokemons () {
+function loadPokemons(pokemonList) {
 
     const ul = document.querySelector('ul');
 
-    pokemons.forEach(pokemon => {
+    clearUl(ul)
 
+    pokemonList.forEach(pokemon => {
         ul.innerHTML += `
           <li>
           <span class="header">
@@ -14,8 +15,23 @@ function loadPokemons () {
           </span>
           <img src="${pokemon.img}">
           </li>        
-        `
+        `;
     });
 }
 
-loadPokemons();
+
+function shufflePokemons() { 
+
+   const listaEmbaralhada = pokemons.sort(() => Math.random() - 0.5)
+
+    loadPokemons(listaEmbaralhada)
+}
+
+window.shufflePokemons = shufflePokemons
+
+function clearUl(ul) {
+       ul.innerHTML = '';
+}
+
+loadPokemons(pokemons)
+
