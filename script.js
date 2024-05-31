@@ -9,13 +9,16 @@ function loadPokemons(pokemonList) {
     pokemonList.forEach(pokemon => {
         ul.innerHTML += `
           <li>
+          <span class="header">
+          <p>${pokemon.nome}</p>
+          <p>${pokemon.ps}</p>
+          </span>
           <img src="${pokemon.img}">
-          <span class="header">${pokemon.nome}</span>
-          <span class="footer">PS: ${pokemon.ps}</span>
           </li>        
         `;
     });
 }
+
 
 function shufflePokemons() { 
 
@@ -31,3 +34,4 @@ function clearUl(ul) {
 }
 
 loadPokemons(pokemons)
+
