@@ -13,6 +13,7 @@
         <h1>Quick Sort</h1>
 
         <div class="buttons">
+            <button onclick="openModal()">Saiba mais</button>
             <button onclick="shufflePokemons()">Embaralhar</button>
             <button onclick="sortPokemons()">Ordenar</button>
         </div>
@@ -26,7 +27,30 @@
 
     <footer>
     </footer>
-
+    <dialog>
+        <button id="x" class="x" onclick="closeModal()">X</button>
+            <h1>Quick sort</h1>
+            <p>O algoritmo Quick Sort é um método de ordenação que segue a abordagem "dividir para conquistar".
+                <br>
+                <b>Escolha do Pivô:</b> O primeiro passo do Quick Sort é escolher um elemento da lista, chamado de pivô. 
+                O pivô pode ser qualquer elemento da lista. Neste exemplo, estamos escolhendo o primeiro elemento da lista.
+                <br>            
+                <b>Particionamento:</b> Após selecionar o pivô, a lista é rearranjada de modo que todos os elementos 
+                menores que o pivô estejam à sua esquerda, e todos os elementos maiores estejam à sua direita. 
+                <br>
+                <b>Recursão:</b> O passo anterior divide a lista em duas partes. 
+                O Quick Sort é então aplicado recursivamente a essas duas partes, isto é, o processo de particionamento 
+                é realizado em cada parte separadamente.
+                <br>
+                <b>Combinação:</b> A lista é ordenada enquanto os elementos são rearranjados durante o processo de particionamento e 
+                recursão. Quando o Quick Sort termina, a lista está ordenada.
+                <br>
+                O tempo de execução do Quick Sort depende em parte da escolha do pivô e da forma como a lista é particionada. 
+                Em média, o Quick Sort tem um desempenho muito eficiente, com uma complexidade de tempo média de O(n log n), 
+                onde n é o número de elementos na lista. No entanto, em casos raros, pode ter um desempenho pior, 
+                com complexidade de tempo de O(n^2), principalmente se o pivô for mal escolhido.
+            </p>
+           </dialog>
     <script type="module" src="./script.js"></script>
 
 </body>

@@ -1,0 +1,6 @@
+Quick sort:
+
+Método de ordenação por comparação baseado na escolha de um pivô, que neste caso será o primeiro card mostrado.
+A ordenação é realizada comparando os pontos das cartas à direita e à esquera com o valor do pivô.
+As cartas que possuem menor valor que o pivô são colocadas à esquerda e as cartas com valor maior são colocadas à direita.
+Esse processo é repetido recursivamente até que todas as cartas estejam em ordem crescente de valor.

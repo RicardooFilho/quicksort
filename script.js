@@ -78,6 +78,7 @@ function quickSortOrdenation(array, startPosition, finalPosition) {
     return array;
 }
 
+
 function sortPokemons() {
 
     const sortedPokemons = quickSortOrdenation(pokemons, 0, pokemons.length - 1);
@@ -87,5 +88,16 @@ function sortPokemons() {
 
 window.shufflePokemons = shufflePokemons;
 window.sortPokemons = sortPokemons;
+window.openModal = openModal;
+window.closeModal = closeModal;
 loadPokemons(pokemons);
 
+function openModal() {
+  const dialog = document.querySelector('dialog');
+  dialog.showModal();
+}
+
+function closeModal() {
+        const dialog = document.querySelector('dialog');
+        dialog.close();
+}
