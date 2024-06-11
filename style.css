@@ -27,24 +27,49 @@ header {
 main {
     display: flex;
     align-items: center;
-    padding: 10px;
+    padding: 20px;
 }
 
 ul {
     display: grid;
     justify-content: center;
-    gap: 20px;
+    gap: 40px;
     grid-template-columns: repeat(7, 1fr);
 }
 
 ul li {
+    font-weight: bold;
     box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
     position: relative;
     list-style: none;
     display: flex;
     border-radius: 10px;
     border: 2px solid rgb(92, 85, 85);
-    flex-direction: column  ;
+    flex-direction: column;
+}
+
+.pivot {
+    transform: scale(1.1);
+    transition: transform 0.5s;
+    background-color: yellow;
+}
+
+.alter {
+    transform: scale(1.1);
+    transition: transform 0.5s;
+    background-color: lightblue;
+}
+
+.search-left {
+    transform: scale(1.1);
+    transition: transform 0.5s;
+    background-color: rgb(173, 230, 181);
+}
+
+.search-right {
+    transform: scale(1.1);
+    transition: transform 0.5s;
+    background-color: rgb(230, 189, 173);
 }
 
 ul li span {

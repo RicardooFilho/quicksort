@@ -1,6 +1,6 @@
 import pokemons from "./pokemons.js";
 
-function loadPokemons(pokemonList) {
+async function loadPokemons(pokemonList) {
 
     const ul = document.querySelector('ul');
 
@@ -8,7 +8,7 @@ function loadPokemons(pokemonList) {
 
     pokemonList.forEach(pokemon => {
         ul.innerHTML += `
-          <li>
+          <li id=li-${pokemon.id}>
           <span class="header">
           <p>${pokemon.nome}</p>
           <p>${pokemon.ps}</p>
@@ -33,12 +33,15 @@ function clearUl(ul) {
        ul.innerHTML = '';
 }
 
-function quickSortOrdenation(array, startPosition, finalPosition) {
+async function quickSortOrdenation(array, startPosition, finalPosition) {
 
-    if (array.length <= 1) {
-
+    if (startPosition >= finalPosition) {
         return array;
     }
+
+    const li = document.querySelector(`#li-${array[startPosition].id}`);
+    li.classList.add('pivot');
+    await new Promise(resolve => setTimeout(resolve, 2000));
 
     let pivot = array[startPosition].ps;
     let left = startPosition;
@@ -47,40 +50,60 @@ function quickSortOrdenation(array, startPosition, finalPosition) {
     while (left <= right) {
 
         while (array[left].ps < pivot) {
-
             left++;
+            const liLeft = document.querySelector(`#li-${array[left].id}`);
+            liLeft.classList.add('search-left');
+            await new Promise(resolve => setTimeout(resolve, 1000));
+            liLeft.classList.remove('search-left');
         }
 
         while (array[right].ps > pivot) {
-
             right--;
+            const liRight = document.querySelector(`#li-${array[right].id}`);
+            liRight.classList.add('search-right');
+            await new Promise(resolve => setTimeout(resolve, 1000));
+            liRight.classList.remove('search-right');
         }
 
         if (left <= right) {
 
+            const liLeft = document.querySelector(`#li-${array[left].id}`);
+            liLeft.classList.add('alter');
+
+            const liRight = document.querySelector(`#li-${array[right].id}`);
+            liRight.classList.add('alter');
+
+            await new Promise(resolve => setTimeout(resolve, 1000));
+            
             [array[left], array[right]] = [array[right], array[left]];
+
+            await loadPokemons(array);
+            await new Promise(resolve => setTimeout(resolve, 1000));
+
+            liLeft.classList.remove('alter');
+            liRight.classList.remove('alter');
 
             left++;
             right--;
         }
     }
 
-    if (startPosition < right) {
+    li.classList.remove('pivot');
 
-        quickSortOrdenation(array, startPosition, right);
+    if (startPosition < right) {
+        await quickSortOrdenation(array, startPosition, right);
     }
 
     if (finalPosition > left) {
-
-        quickSortOrdenation(array, left, finalPosition);
+        await quickSortOrdenation(array, left, finalPosition);
     }
 
     return array;
 }
 
-function sortPokemons() {
+async function sortPokemons() {
 
-    const sortedPokemons = quickSortOrdenation(pokemons, 0, pokemons.length - 1);
+    const sortedPokemons = await quickSortOrdenation(pokemons, 0, pokemons.length - 1);
 
     loadPokemons(sortedPokemons);
 }
