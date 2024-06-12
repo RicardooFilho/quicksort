@@ -20,9 +20,9 @@ async function loadPokemons(pokemonList) {
 }
 
 
-function shufflePokemons() { 
+function shufflePokemons() {
 
-   const listaEmbaralhada = pokemons.sort(() => Math.random() - 0.5);
+    const listaEmbaralhada = pokemons.sort(() => Math.random() - 0.5);
 
     loadPokemons(listaEmbaralhada);
 }
@@ -30,7 +30,7 @@ function shufflePokemons() {
 
 function clearUl(ul) {
 
-       ul.innerHTML = '';
+    ul.innerHTML = '';
 }
 
 async function quickSortOrdenation(array, startPosition, finalPosition) {
@@ -74,7 +74,7 @@ async function quickSortOrdenation(array, startPosition, finalPosition) {
             liRight.classList.add('alter');
 
             await new Promise(resolve => setTimeout(resolve, 1000));
-            
+
             [array[left], array[right]] = [array[right], array[left]];
 
             await loadPokemons(array);
