@@ -29,7 +29,9 @@ function clearUl(ul) {
 }
 
 async function quickSortOrdenation(array, startPosition, finalPosition) {
+
   if (startPosition >= finalPosition) {
+    
     return array;
   }
 
@@ -133,7 +135,7 @@ function showLegend(legend) {
 
   setTimeout(() => {
     legendElement.remove();
-  }, 5000);
+  }, 7000);
 }
 
 async function sortPokemons() {

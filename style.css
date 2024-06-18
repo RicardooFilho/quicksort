@@ -135,10 +135,10 @@ button:active {
   padding: 15px;
   background-color: rgba(240, 236, 8, 0.949);
   color: #000;
-  font-size: 20px;
+  font-size: 40px;
   border-radius: 5px;
   z-index: 1000;
-  animation: fadeOut 5s forwards;
+  animation: fadeOut 7s forwards;
 }
 
 @keyframes fadeOut {
